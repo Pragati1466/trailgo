@@ -205,11 +205,11 @@ export default function Hero() {
         </main>
         <section className="py-12 mt-[100px] w-full ">
                     <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
-                    <div className="max-w-2xl mx-auto space-y-4">
+                    <div className="max-w-4xl mx-auto space-y-4">
                       {FAQs.map((faq, index) => (
                         <div
                           key={index}
-                          className={`p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 ${
+                          className={`bg-gray-100 p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 rounded-full${
                             openFAQIndex === index ? "bg-orange-200 border-l-4 border-orange-500" : "bg-white"
                           }`}
                         >
