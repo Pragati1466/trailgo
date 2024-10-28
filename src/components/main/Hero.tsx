@@ -3,12 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { FAQs } from "@/app/FAQs/FAQs";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [visible, setVisible] = useState(false); // For animations
   const [letterIndex, setLetterIndex] = useState(-1); // Start with -1 to not show any letters initially
+  const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null);
+
+  const toggleAnswer = (index: number) => {
+      setOpenFAQIndex(openFAQIndex === index ? null : index); 
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -114,13 +120,13 @@ export default function Hero() {
           ) : null}
         </div>
       </nav>
-      <Image
+      {/* <Image
         width={500}
         height={500}
         src="/bg.webp"
         className="w-full h-full absolute top-0 left-0 -z-10 object-cover"
         alt="Full-Stack-Kit Background"
-      />
+      />*/}
       <div className="py-12 min-h-screen px-4 sm:px-6 lg:px-8">
         <main>
           <section className="text-center py-12">
@@ -196,8 +202,36 @@ export default function Hero() {
               </div>
             ))}
           </section>
-
         </main>
+        <section className="py-12 mt-[100px] w-full ">
+                    <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+                    <div className="max-w-2xl mx-auto space-y-4">
+                      {FAQs.map((faq, index) => (
+                        <div
+                          key={index}
+                          className={`p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 ${
+                            openFAQIndex === index ? "bg-orange-200 border-l-4 border-orange-500" : "bg-white"
+                          }`}
+                        >
+                          <h3
+                            className="font-semibold cursor-pointer text-gray-900 hover:text-orange-500 transition duration-200"
+                            onClick={() => toggleAnswer(index)}
+                          >
+                            {faq.question}
+                          </h3>
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                              openFAQIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            <p className="mt-2 text-gray-700">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
       </div>
     </>
   );
@@ -289,10 +323,10 @@ const menuItem = [
     name: "Contact",
     href: "/contact",
   },
-  {
-    name: "FAQs & Forum",
-    href: "/FAQs",
-  },
+  // {
+  //   name: "FAQs & Forum",
+  //   href: "/FAQs",
+  // },
 ];
 
 function HamburgerMenu() {
@@ -313,6 +347,3 @@ function HamburgerMenu() {
     </svg>
   );
 }
-
-
-
