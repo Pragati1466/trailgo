@@ -13,8 +13,7 @@ interface Post {
 const FAQForum: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [posts, setPosts] = useState<Post[]>(initialPosts);
-    const [newPost, setNewPost] = useState<Post>({
-        id: 0,
+    const [newPost, setNewPost] = useState<Omit<Post, "id">>({
         title: "",
         content: "",
     });
@@ -25,7 +24,6 @@ const FAQForum: React.FC = () => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    // Updated color palette to match the homepage
     const cardColors = [
         "bg-orange-100",
         "bg-orange-200",
@@ -37,7 +35,7 @@ const FAQForum: React.FC = () => {
         e.preventDefault();
         if (newPost.title && newPost.content) {
             setPosts([{ id: posts.length + 1, ...newPost }, ...posts]);
-            setNewPost({ id: 0, title: "", content: "" });
+            setNewPost({ title: "", content: "" });
         }
     };
 
@@ -99,7 +97,6 @@ const FAQForum: React.FC = () => {
                                         <span className="text-lg font-semibold">
                                             {faq.question}
                                         </span>
-                                        {/* Icon rotation logic */}
                                         <span
                                             className={`text-3xl transition-transform duration-300 transform ${
                                                 activeIndex === index
@@ -182,7 +179,6 @@ const FAQForum: React.FC = () => {
                                     className="relative w-full perspective transition-transform duration-300 hover:scale-105"
                                 >
                                     <div className="relative w-full h-64 transform-style-3d transition-transform duration-700 hover:rotate-y-180">
-                                        {/* Front of the Card */}
                                         <div
                                             className={`absolute inset-0 p-6 rounded-lg shadow-lg backface-hidden flex items-center justify-center overflow-hidden transition duration-300 ease-in-out hover:shadow-xl ${
                                                 cardColors[
@@ -195,7 +191,6 @@ const FAQForum: React.FC = () => {
                                             </h3>
                                         </div>
 
-                                        {/* Back of the Card */}
                                         <div
                                             className={`absolute inset-0 p-6 rounded-lg shadow-lg rotate-y-180 backface-hidden overflow-hidden transition duration-300 ease-in-out hover:shadow-xl bg-white`}
                                         >
