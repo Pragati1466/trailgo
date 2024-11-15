@@ -9,23 +9,7 @@ export default function LoginPage() {
       <div className="justify-between gap-x-8 px-4 py-8 pt-10 md:pt-12 lg:flex lg:p-6 xl:gap-x-10 xl:p-7 2xl:p-10 2xl:pt-10">
         <div className="relative flex w-full items-start pt-4 justify-center lg:w-5/12 2xl:pe-24">
           <div className=" w-full max-w-sm md:max-w-md lg:py-7 lg:ps-3 lg:pt-16 2xl:w-[630px] 2xl:max-w-none 2xl:ps-20 2xl:pt-7">
-            <a
-              className="absolute -top-4 start-0 hidden p-3 text-gray-500 hover:text-gray-700 lg:flex lg:items-center 2xl:-top-7 2xl:ps-20 "
-              href="/"
-            >
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 256 256"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z"></path>
-              </svg>
-              <b className="ms-1 font-medium">Back to home</b>
-            </a>
+            <a class="flex items-center justify-center bg-white text-orange-500 rounded-full shadow-lg p-4 hover:text-orange-700" href="/" style="width: 3.5rem; height: 3.5rem;"> <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 24 24"> <path d="M12 3L3 12h3v8h6v-6h2v6h6v-8h3L12 3z"/> </svg> </a>
             <div className="mb-7 px-0 pt-3 mt-4 text-center md:pt-0 lg:text-start xl:mb-8 2xl:mb-10">
               <h2 className="font-bold mb-5 text-[32px] leading-snug md:text-3xl md:!leading-normal lg:mb-7 lg:pe-16 lg:text-[28px] xl:text-3xl 2xl:pe-8 2xl:text-4xl">
                 Welcome back! Please{" "}
